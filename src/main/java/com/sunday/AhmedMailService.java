@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -12,8 +13,6 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.FileInputStream;
 import java.nio.file.Paths;
-
-import static org.springframework.http.MediaType.parseMediaType;
 
 @Slf4j
 @Service
@@ -37,8 +36,9 @@ public class AhmedMailService {
     }
 
     public ResponseEntity<Object> downloadFile() throws Exception {
+
         String s = String.valueOf(Paths.get("").toAbsolutePath());
-        s += "\\src\\main\\resources\\resume.docx";
+        s += "\\resume.docx";
         File file = new File(s);
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
         HttpHeaders headers = new HttpHeaders();
@@ -49,7 +49,7 @@ public class AhmedMailService {
         return ResponseEntity.ok()
                 .headers(headers)
                 .contentLength(file.length())
-                .contentType(parseMediaType("application/docx"))
+                .contentType(MediaType.parseMediaType("application/docx"))
                 .body(resource);
     }
 

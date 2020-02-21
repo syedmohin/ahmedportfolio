@@ -1406,3 +1406,97 @@ Caused by: java.lang.IllegalArgumentException: Property must not be null: uri
 	at com.redhat.quarkus.ls.QuarkusTextDocumentService.didOpen(QuarkusTextDocumentService.java:107)
 	... 17 more
 
+Feb 21, 2020 6:06:57 PM com.redhat.quarkus.ls.QuarkusLanguageServer initialize
+INFO: Initializing Quarkus server 0.0.4-20191120-1547 with C:\Program Files\JetBrains\IntelliJ IDEA 201.5616.10\jbr
+Feb 21, 2020 6:06:58 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "textDocument/didOpen",
+  "params": {
+    "textDocument": {
+      "languageId": "properties",
+      "version": -1,
+      "text": "package com.sunday;\n\nimport lombok.RequiredArgsConstructor;\nimport lombok.extern.slf4j.Slf4j;\nimport org.springframework.core.io.InputStreamResource;\nimport org.springframework.http.HttpHeaders;\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.mail.SimpleMailMessage;\nimport org.springframework.mail.javamail.JavaMailSender;\nimport org.springframework.stereotype.Service;\n\nimport java.io.File;\nimport java.io.FileInputStream;\nimport java.nio.file.Paths;\n\nimport static org.springframework.http.MediaType.parseMediaType;\n\n@Slf4j\n@Service\n@RequiredArgsConstructor\npublic class AhmedMailService {\n\n    private final JavaMailSender javaMailSender;\n    private final Repo repo;\n\n    public void sendNotification(UserData userData) {\n        SimpleMailMessage mail \u003d new SimpleMailMessage();\n        mail.setFrom(\"deccanbesporty@gmail.com\");\n        mail.setTo(\"ahmed.mohammad1121@gmail.com\");\n        mail.setText(userData.getMsg() + \"   -\u003e   \" + userData.getMail() + \"   -\u003e   \" + userData.getName());\n        mail.setSubject(userData.getSub());\n        mail.setReplyTo(\"deccanbesporty@gmail.com\");\n        javaMailSender.send(mail);\n        log.info(\"mail send successfull by {}\", userData.getName());\n        repo.save(userData);\n        log.info(\"Data store in Database by {} \", userData.getName());\n    }\n\n    public ResponseEntity\u003cObject\u003e downloadFile() throws Exception {\n        String s \u003d String.valueOf(Paths.get(\"\").toAbsolutePath());\n        s +\u003d \"\\\\src\\\\main\\\\resources\\\\resume.docx\";\n        File file \u003d new File(s);\n        InputStreamResource resource \u003d new InputStreamResource(new FileInputStream(file));\n        HttpHeaders headers \u003d new HttpHeaders();\n        headers.add(\"Content-Disposition\", String.format(\"attachment; filename\u003d\\\"%s\\\"\", file.getName()));\n        headers.add(\"Cache-Control\", \"no-cache, no-store, must-revalidte\");\n        headers.add(\"Pragma\", \"no-cache\");\n        headers.add(\"Expires\", \"0\");\n        return ResponseEntity.ok()\n                .headers(headers)\n                .contentLength(file.length())\n                .contentType(parseMediaType(\"application/docx\"))\n                .body(resource);\n    }\n\n}\n"
+    }
+  }
+}
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:152)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:220)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:187)
+	at com.redhat.quarkus.ls.commons.ParentProcessWatcher.lambda$apply$0(ParentProcessWatcher.java:140)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 12 more
+Caused by: java.lang.IllegalArgumentException: Property must not be null: uri
+	at org.eclipse.lsp4j.util.Preconditions.checkNotNull(Preconditions.java:29)
+	at org.eclipse.lsp4j.TextDocumentItem.setUri(TextDocumentItem.java:70)
+	at com.redhat.quarkus.ls.commons.TextDocument.<init>(TextDocument.java:47)
+	at com.redhat.quarkus.ls.commons.TextDocument.<init>(TextDocument.java:41)
+	at com.redhat.quarkus.ls.commons.ModelTextDocument.<init>(ModelTextDocument.java:37)
+	at com.redhat.quarkus.ls.commons.ModelTextDocuments.createDocument(ModelTextDocuments.java:34)
+	at com.redhat.quarkus.ls.commons.ModelTextDocuments.createDocument(ModelTextDocuments.java:24)
+	at com.redhat.quarkus.ls.commons.TextDocuments.onDidOpenTextDocument(TextDocuments.java:93)
+	at com.redhat.quarkus.ls.QuarkusTextDocumentService.didOpen(QuarkusTextDocumentService.java:107)
+	... 17 more
+
+Feb 21, 2020 6:10:55 PM com.redhat.quarkus.ls.QuarkusLanguageServer initialize
+INFO: Initializing Quarkus server 0.0.4-20191120-1547 with C:\Program Files\JetBrains\IntelliJ IDEA 201.5616.10\jbr
+Feb 21, 2020 6:10:55 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "textDocument/didOpen",
+  "params": {
+    "textDocument": {
+      "languageId": "properties",
+      "version": -1,
+      "text": "Ahmed and Syed Mohiuddin"
+    }
+  }
+}
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:152)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:220)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:187)
+	at com.redhat.quarkus.ls.commons.ParentProcessWatcher.lambda$apply$0(ParentProcessWatcher.java:140)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 12 more
+Caused by: java.lang.IllegalArgumentException: Property must not be null: uri
+	at org.eclipse.lsp4j.util.Preconditions.checkNotNull(Preconditions.java:29)
+	at org.eclipse.lsp4j.TextDocumentItem.setUri(TextDocumentItem.java:70)
+	at com.redhat.quarkus.ls.commons.TextDocument.<init>(TextDocument.java:47)
+	at com.redhat.quarkus.ls.commons.TextDocument.<init>(TextDocument.java:41)
+	at com.redhat.quarkus.ls.commons.ModelTextDocument.<init>(ModelTextDocument.java:37)
+	at com.redhat.quarkus.ls.commons.ModelTextDocuments.createDocument(ModelTextDocuments.java:34)
+	at com.redhat.quarkus.ls.commons.ModelTextDocuments.createDocument(ModelTextDocuments.java:24)
+	at com.redhat.quarkus.ls.commons.TextDocuments.onDidOpenTextDocument(TextDocuments.java:93)
+	at com.redhat.quarkus.ls.QuarkusTextDocumentService.didOpen(QuarkusTextDocumentService.java:107)
+	... 17 more
+
