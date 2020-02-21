@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.nio.file.Paths;
 import java.util.List;
 
@@ -48,21 +49,21 @@ public class AhmedMailController {
         Object object;
         Resource resource = new ClassPathResource("resume.pdf");
         response.setContentType("application/pdf");
-        response.setHeader("Content-Disposition","attachment; filename=resume.pdf");
-        response.setHeader("Content-Transfer-Encoding","binary");
-        try{
+        response.setHeader("Content-Disposition", "attachment; filename=resume.pdf");
+        response.setHeader("Content-Transfer-Encoding", "binary");
+        try {
             File file;
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(response.getOutputStream());
             FileInputStream fileInputStream = new FileInputStream(resource.getFile());
             int len;
             byte[] buf = new byte[1024];
-            while((len= fileInputStream.read())>0){
-                bufferedOutputStream.write(buf,0,len);
+            while ((len = fileInputStream.read()) > 0) {
+                bufferedOutputStream.write(buf, 0, len);
             }
             bufferedOutputStream.close();
             response.flushBuffer();
-        }catch (Exception e){
-
+        } catch (Exception e) {
+            log.error("Unable to download file");
         }
     }
 
