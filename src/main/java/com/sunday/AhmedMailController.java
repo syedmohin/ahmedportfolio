@@ -50,6 +50,7 @@ public class AhmedMailController {
         return service.getData();
     }
 
+    @RequestMapping("path")
     public String path() {
         return Paths.get("").toAbsolutePath() + "resume.pdf";
     }
