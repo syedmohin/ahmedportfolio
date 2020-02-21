@@ -22,8 +22,6 @@ import static org.springframework.http.MediaType.parseMediaType;
 @RequiredArgsConstructor
 public class AhmedMailService {
 
-    @Value("classpath:resume.docx")
-    private static Resource path;
     private final JavaMailSender javaMailSender;
     private final Repo repo;
 
