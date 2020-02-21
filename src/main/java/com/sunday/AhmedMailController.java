@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.nio.file.Paths;
 import java.util.List;
 
 @Slf4j
@@ -45,7 +46,11 @@ public class AhmedMailController {
 
     @ResponseBody
     @GetMapping("data")
-    public List<UserData> getData(){
+    public List<UserData> getData() {
         return service.getData();
+    }
+
+    public String path() {
+        return Paths.get("").toAbsolutePath() + "resume.pdf";
     }
 }
