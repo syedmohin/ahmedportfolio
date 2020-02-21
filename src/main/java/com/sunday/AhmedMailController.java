@@ -47,7 +47,7 @@ public class AhmedMailController {
     public void downloadFile(HttpServletResponse response) {
 //        Resource resource = new ClassPathResource("resume.pdf");
         String path = String.valueOf(Paths.get("").toAbsolutePath());
-        log.info(path+"\\resume.pdf");
+        log.info(path+"/resume.pdf");
         response.setContentType("application/pdf");
         response.setHeader("Content-Disposition", "attachment; filename=resume.pdf");
         response.setHeader("Content-Transfer-Encoding", "binary");
