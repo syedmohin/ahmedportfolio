@@ -33,7 +33,7 @@ public class AhmedMailController {
     @ResponseBody
     @GetMapping("/name")
     public String name() {
-        log.info("Calling GOku owner ");
+        log.info("Calling Goku Army ");
         return "Syed Mohiuddin < Goku Army";
     }
 

@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -42,21 +41,21 @@ public class AhmedMailService {
 
         log.info("resume path is set here");
 
-        File file = new ClassPathResource("resume.docx").getFile();
+        File file = new ClassPathResource("resume.pdf").getFile();
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", "attachment; filename=\"" + file.getName()+"\"");
+        headers.add("Content-Disposition", "attachment; filename=\"resume.pdf\"");
         headers.add("Cache-Control", "no-cache, no-store, must-revalidte");
         headers.add("Pragma", "no-cache");
         headers.add("Expires", "0");
         return ResponseEntity.ok()
                 .headers(headers)
                 .contentLength(file.length())
-                .contentType(MediaType.parseMediaType("application/vnd.openxmlformats-officedocument.wordprocessingml.document"))
+                .contentType(MediaType.parseMediaType("application/pdf"))
                 .body(resource);
     }
 
-    public List <UserData> getData(){
+    public List<UserData> getData() {
         Iterable<UserData> data = repo.findAll();
         List<UserData> list = new ArrayList<>();
         data.forEach(list::add);
