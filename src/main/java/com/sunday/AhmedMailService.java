@@ -2,6 +2,7 @@ package com.sunday;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -12,8 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @Slf4j
 @Service
@@ -38,9 +37,9 @@ public class AhmedMailService {
 
     public ResponseEntity<Object> downloadFile() throws Exception {
 
-        String s = String.valueOf(Paths.get("").toAbsolutePath());
-        s += "\\resume.docx";
-        File file = new File(s);
+//        String s = String.valueOf(Paths.get("").toAbsolutePath());
+//        s += "\\resume.docx";
+        File file = new ClassPathResource("resume.docx").getFile();
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Disposition", String.format("attachment; filename=\"%s\"", file.getName()));
