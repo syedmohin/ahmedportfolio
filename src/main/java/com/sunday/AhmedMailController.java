@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedOutputStream;
-import java.io.File;
 import java.io.FileInputStream;
 import java.nio.file.Paths;
 import java.util.List;
@@ -45,25 +44,25 @@ public class AhmedMailController {
 
     @ResponseBody
     @RequestMapping("/getresume")
-    public void downloadFile(HttpServletResponse response) throws Exception {
-        Object object;
-        Resource resource = new ClassPathResource("resume.pdf");
+    public void downloadFile(HttpServletResponse response) {
+//        Resource resource = new ClassPathResource("resume.pdf");
+        String path = String.valueOf(Paths.get("").toAbsolutePath());
+        log.info(path+"\\resume.pdf");
         response.setContentType("application/pdf");
         response.setHeader("Content-Disposition", "attachment; filename=resume.pdf");
         response.setHeader("Content-Transfer-Encoding", "binary");
         try {
-            File file;
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(response.getOutputStream());
-            FileInputStream fileInputStream = new FileInputStream(resource.getFile());
+            FileInputStream fileInputStream = new FileInputStream(path+"\\resume.pdf");
             int len;
             byte[] buf = new byte[1024];
-            while ((len = fileInputStream.read()) > 0) {
+            while ((len = fileInputStream.read(buf)) > 0) {
                 bufferedOutputStream.write(buf, 0, len);
             }
             bufferedOutputStream.close();
             response.flushBuffer();
         } catch (Exception e) {
-            log.error("Unable to download file");
+            log.error("Unable to download file  {} ",e.getMessage());
         }
     }
 
