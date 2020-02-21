@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -16,11 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 public class AhmedMailController {
 
     private final AhmedMailService service;
-
-//    @RequestMapping(path = {"index.html", "", "/"})
-//    public String homePage() {
-//        return "index";
-//    }
 
     @RequestMapping("/getdata")
     public String confirm(HttpServletRequest request) {
@@ -41,8 +37,15 @@ public class AhmedMailController {
         return "Syed Mohiuddin < Goku Army";
     }
 
-    @GetMapping("/getresume")
+    @ResponseBody
+    @RequestMapping("/getresume")
     public ResponseEntity<?> downloadFile() throws Exception {
         return service.downloadFile();
+    }
+
+    @ResponseBody
+    @GetMapping("data")
+    public List<UserData> getData(){
+        return service.getData();
     }
 }

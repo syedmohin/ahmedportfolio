@@ -10,9 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -51,6 +54,13 @@ public class AhmedMailService {
                 .contentLength(file.length())
                 .contentType(MediaType.parseMediaType("application/vnd.openxmlformats-officedocument.wordprocessingml.document"))
                 .body(resource);
+    }
+
+    public List <UserData> getData(){
+        Iterable<UserData> data = repo.findAll();
+        List<UserData> list = new ArrayList<>();
+        data.forEach(list::add);
+        return list;
     }
 
 }
