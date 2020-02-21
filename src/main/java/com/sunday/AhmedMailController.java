@@ -2,8 +2,6 @@ package com.sunday;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,15 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.nio.file.Paths;
 
 @Slf4j
 @Controller
 @RequiredArgsConstructor
 public class AhmedMailController {
 
-    @Value("class:resume.docx")
-    public static Resource resource;
     private final AhmedMailService service;
 
 //    @RequestMapping(path = {"index.html", "", "/"})
@@ -38,10 +33,6 @@ public class AhmedMailController {
         service.sendNotification(data);
         return "details";
     }
-//    @RequestMapping("/error")
-//    public String error(){
-//        return "error/404";
-//    }
 
     @ResponseBody
     @GetMapping("/name")
@@ -51,19 +42,7 @@ public class AhmedMailController {
     }
 
     @GetMapping("/getresume")
-    public ResponseEntity<?> downloadFile() {
-        try {
-            return service.downloadFile();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @RequestMapping("path")
-    @ResponseBody
-    public String path() {
-
-        return null;
+    public ResponseEntity<?> downloadFile() throws Exception {
+        return service.downloadFile();
     }
 }
