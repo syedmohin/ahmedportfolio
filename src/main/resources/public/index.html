@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Ahmed Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./img/title.png" type="image/png">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Montserrat", sans-serif
+        }
+
+        .w3-row-padding img {
+            margin-bottom: 12px
+        }
+
+        /* Set the width of the sidebar to 120px */
+        .w3-sidebar {
+            width: 120px;
+            background: #222;
+        }
+
+        /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+        #main {
+            margin-left: 120px
+        }
+
+        .m {
+            margin-left: 1px;
+        }
+
+        /* Remove margins from "page content" on small screens */
+        @media only screen and (max-width: 600px) {
+            #main {
+                margin-left: 0
+            }
+        }
+    </style>
+</head>
+<body class="w3-black" data-gr-c-s-loaded="true">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+    <!-- Avatar image in top left corner -->
+    <img src="./img/main.jpg" style="width:100%" alt="">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+        <i class="fa fa-home w3-xxlarge"></i>
+        <p>HOME</p>
+    </a>
+    <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-user w3-xxlarge"></i>
+        <p>ABOUT</p>
+    </a>
+    <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-eye w3-xxlarge"></i>
+        <p>PHOTOS</p>
+    </a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-envelope w3-xxlarge"></i>
+        <p>CONTACT</p>
+    </a>
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+    <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+        <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+        <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
+        <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
+        <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+    </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+    <!-- Header/Home -->
+    <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+        <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Mohammad Ahmed.</h1>
+        <p> Web Designer and Developer.</p>
+        <img src="./img/main.jpg" alt="boy" class="w3-image" width="992" height="1108">
+    </header>
+
+    <!-- About Section -->
+    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+        <h2 class="w3-text-light-grey">My Name</h2>
+        <hr style="width:200px" class="w3-opacity">
+        <p>My Name is Mohammad Ahmed, and my portfolio is a representation of all that i've learned and accomplished as
+            computer and science engineering student.
+            The Written samples in this portfolio show how my critical thinking skills have evolved over the course of
+            the program.
+            My Personal philosophy when it comes to education and learning is closely related to several cognitive
+            theories of motivation.
+        </p>
+        <h3 class="w3-padding-16 w3-text-light-grey">My Skills</h3>
+        <p class="w3-wide">Photography</p>
+        <div class="w3-white">
+            <div class="w3-dark-grey" style="height:28px;width:95%"></div>
+        </div>
+        <p class="w3-wide">Web Design</p>
+        <div class="w3-white">
+            <div class="w3-dark-grey" style="height:28px;width:85%"></div>
+        </div>
+        <p class="w3-wide">Programming</p>
+        <div class="w3-white">
+            <div class="w3-dark-grey" style="height:28px;width:80%"></div>
+        </div>
+        <br>
+
+        <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
+            <div class="w3-quarter w3-section">
+                <span class="w3-xlarge">3</span><br>
+                Partners
+            </div>
+            <div class="w3-quarter w3-section">
+                <span class="w3-xlarge">2</span><br>
+                Projects Done
+            </div>
+            <div class="w3-quarter w3-section">
+                <span class="w3-xlarge">2</span><br>
+                Happy Clients
+            </div>
+            <div class="w3-quarter w3-section">
+                <span class="w3-xlarge">75+</span><br>
+                Meetings
+            </div>
+        </div>
+
+        <a class="w3-button w3-light-grey w3-padding-large w3-section" href="/getresume">
+            <i class="fa fa-download"></i> Download Resume
+        </a>
+
+        <!--        &lt;!&ndash; Grid for pricing tables &ndash;&gt;-->
+        <!--        <h3 class="w3-padding-16 w3-text-light-grey">My Price</h3>-->
+        <!--        <div class="w3-row-padding" style="margin:0 -16px">-->
+        <!--            <div class="w3-half w3-margin-bottom">-->
+        <!--                <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">-->
+        <!--                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>-->
+        <!--                    <li class="w3-padding-16">Web Design</li>-->
+        <!--                    <li class="w3-padding-16">Photography</li>-->
+        <!--                    <li class="w3-padding-16">5GB Storage</li>-->
+        <!--                    <li class="w3-padding-16">Mail Support</li>-->
+        <!--                    <li class="w3-padding-16">-->
+        <!--                        <h2>$ 10</h2>-->
+        <!--                        <span class="w3-opacity">per month</span>-->
+        <!--                    </li>-->
+        <!--                    <li class="w3-light-grey w3-padding-24">-->
+        <!--                        <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>-->
+        <!--                    </li>-->
+        <!--                </ul>-->
+        <!--            </div>-->
+
+        <!--            <div class="w3-half">-->
+        <!--                <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">-->
+        <!--                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Pro</li>-->
+        <!--                    <li class="w3-padding-16">Web Design</li>-->
+        <!--                    <li class="w3-padding-16">Photography</li>-->
+        <!--                    <li class="w3-padding-16">50GB Storage</li>-->
+        <!--                    <li class="w3-padding-16">Endless Support</li>-->
+        <!--                    <li class="w3-padding-16">-->
+        <!--                        <h2>$ 25</h2>-->
+        <!--                        <span class="w3-opacity">per month</span>-->
+        <!--                    </li>-->
+        <!--                    <li class="w3-light-grey w3-padding-24">-->
+        <!--                        <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>-->
+        <!--                    </li>-->
+        <!--                </ul>-->
+        <!--            </div>-->
+        <!--            &lt;!&ndash; End Grid/Pricing tables &ndash;&gt;-->
+        <!--        </div>-->
+
+        <!--        &lt;!&ndash; Testimonials &ndash;&gt;-->
+        <!--        <h3 class="w3-padding-24 w3-text-light-grey">My Reputation</h3>-->
+        <!--        <img src="Ahmed_files/bandmember.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">-->
+        <!--        <p><span class="w3-large w3-margin-right">Chris Fox.</span> CEO at Mighty Schools.</p>-->
+        <!--        <p>Jane Doe saved us from a web disaster.</p><br>-->
+
+        <!--        <img src="Ahmed_files/avatar_g2.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">-->
+        <!--        <p><span class="w3-large w3-margin-right">Rebecca Flex.</span> CEO at Company.</p>-->
+        <!--        <p>No one is better than Jane Doe.</p>-->
+        <!--        &lt;!&ndash; End About Section &ndash;&gt;-->
+    </div>
+
+    <!-- Portfolio Section -->
+    <div class="w3-padding-64 w3-content" id="photos">
+        <h2 class="w3-text-light-grey">My Photos</h2>
+        <hr style="width:200px" class="w3-opacity">
+
+        <!-- Grid for photos -->
+        <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half">
+                <img src="./img/1.jpeg" style="width:100%" alt="">
+                <img src="./img/3.jpeg" style="width:100%" alt="">
+                <img src="./img/4.jpeg" style="width:100%" alt="">
+            </div>
+
+            <div class="w3-half">
+                <img src="./img/6.jpeg" style="width:100%" alt="">
+                <img src="./img/7.jpeg" style="width:100%" alt="">
+                <img src="./img/8.jpeg" style="width:100%" alt="">
+                <!--                <img src="./img/p6.jpg" style="width:100%" alt="">-->
+            </div>
+            <!-- End photo grid -->
+        </div>
+        <!-- End Portfolio Section -->
+    </div>
+
+    <!-- Contact Section -->
+    <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+        <h2 class="w3-text-light-grey">Contact Me</h2>
+        <hr style="width:200px" class="w3-opacity">
+
+        <div class="w3-section">
+            <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Hyderabad, IN</p>
+            <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +91 8074032169</p>
+            <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email:
+                ahmed.mohammad1121@gmail.com</p>
+        </div>
+        <br>
+        <p>Lets get in touch. Send me a message:</p>
+
+        <form action="/getdata">
+            <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required="" name="name"></p>
+            <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required="" name="mail"></p>
+            <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required="" name="sub"></p>
+            <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required="" name="msg"></p>
+            <p>
+                <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+                    <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                </button>
+            </p>
+        </form>
+        <!-- End Contact Section -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+        <a href="https://www.facebook.com/profile.php?id=100047421170755" class="m"><i
+                class="fa fa-facebook-official w3-hover-opacity"></i></a>
+        <a href="https://www.instagram.com/im_ah001/" class="m"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+        <a href="https://www.snapchat.com/add/snap_ahmed11" class="m"><i
+                class="fa fa-snapchat w3-hover-opacity"></i></a>
+        <a href="https://twitter.com/ahmedd7861?s=09" class="m"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+        <a href="https://www.linkedin.com/in/mohammad-ahmed-358467197" class="m"><i
+                class="fa fa-linkedin w3-hover-opacity"></i></a>
+        <p class="w3-medium">Powered by Goku Army.</p>
+        <!-- End footer -->
+    </footer>
+
+    <!-- END PAGE CONTENT -->
+</div>
+
+
+</body>
+<span class="gr__tooltip">
+    <span class="gr__tooltip-content"></span>
+    <i class="gr__tooltip-logo"></i>
+    <span class="gr__triangle">
+</span></span>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!--<head>-->
+<!--    <title>PORTFOLIO</title>-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--    <link rel="icon" href="title.png" type="image/png">-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<!--    <link rel="stylesheet" type="text/css" href="style.css">-->
+<!--</head>-->
+
+<!--<body>-->
+<!--<header>-->
+<!--    <div class="container">-->
+<!--        <div class="row no-gutters">-->
+<!--            <div class="col-lg-4 col-md-4">-->
+<!--                <img src="yy.jpg">-->
+<!--            </div>-->
+<!--            <div class="col-lg-8 col-md-8">-->
+<!--                <div class="d-flex flex-column">-->
+<!--                    <div class="p-5 bg-dark text-white">-->
+
+<!--                        <div class="d-flex flex-row justify-content-between align-items-center">-->
+<!--                            <h1 class="display-4 fonts">Mohd Ahmed</h1>-->
+<!--                            <div><a href="#"><i class="fa fa-facebook"></i></a></div>-->
+<!--                            <div><a href="#"><i class="fa fa-google-plus"></i></a></div>-->
+<!--                            <div><a href="https://www.instagram.com/im_ah001/"><i class="fa fa-instagram"></i></a></div>-->
+<!--                            <div><a href="https://www.linkedin.com/in/mohammad-ahmed-358467197"><i-->
+<!--                                    class="fa fa-linkedin" aria-hidden="true"></i></a></div>-->
+<!--                            <div><a href="https://twitter.com/ahmedd7861?s=09"><i class="fa fa-twitter"></i></a></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="p-4 text-white bg-black web">-->
+<!--                        Web Developer & Influencer-->
+<!--                    </div>-->
+<!--                    <div class="d-flex flex-row text-center text-white">-->
+
+<!--                        <div class="p-4 bg-success font-div" data-toggle="collapse" data-target="#home">-->
+<!--                            <i class="fa fa-home fa-2x d-block"></i> <label class="jet">Home</label>-->
+<!--                        </div>-->
+<!--                        <div class="p-4 bg-danger font-div" data-toggle="collapse" data-target="#resume">-->
+<!--                            <i class="fa fa-graduation-cap fa-2x d-block"></i><label class="jet">Resume</label>-->
+<!--                        </div>-->
+<!--                        <div class="p-4 bg-primary font-div" data-toggle="collapse" data-target="#work">-->
+<!--                            <i class="fa fa-folder fa-2x d-block"></i><label class="jet"> Work</label>-->
+<!--                        </div>-->
+<!--                        <div class="p-4 bg-warning font-div" data-toggle="collapse" data-target="#contact">-->
+<!--                            <i class="fa fa-envelope fa-2x d-block"></i><label class="jet"> Contact</label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</header>-->
+<!--<div class="container">-->
+<!--    <div class="collapse" id="home">-->
+<!--        <div class="p-5 text-white bg-success">-->
+<!--            <h2>About</h2>-->
+<!--            <p>This My Resume that Ellaborate my work experience and what i did,what technologyies i used.</p>-->
+<!--        </div>-->
+<!--        <div class="card card-body">-->
+<!--            <h2>My Skills</h2>-->
+<!--            <p>Here all my skills were displayed according to that what i did in my carrier.</p>-->
+<!--            <h4> HTML </h4>-->
+<!--            <div class="progress mb-4">-->
+<!--                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%"></div>-->
+<!--            </div>-->
+<!--            <h4> CSS </h4>-->
+<!--            <div class="progress mb-4">-->
+<!--                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 70%"></div>-->
+<!--            </div>-->
+<!--            <h4> JAVASCRIPT </h4>-->
+<!--            <div class="progress mb-4">-->
+<!--                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 65%"></div>-->
+<!--            </div>-->
+<!--            <h4> BOOTStrap </h4>-->
+<!--            <div class="progress mb-4">-->
+<!--                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>-->
+<!--            </div>-->
+<!--            <h4> PHP </h4>-->
+<!--            <div class="progress mb-4">-->
+<!--                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 60%"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="collapse container" id="resume">-->
+<!--    <div class="p-5 text-white bg-danger">-->
+<!--        <h2>My Resume</h2>-->
+<!--        <p>This My Resume that Ellaborate my work experience and what i did,what technologyies i used.</p>-->
+<!--    </div>-->
+<!--    <div class="card card-body">-->
+<!--        <h2>Where I Have Worked.</h2>-->
+<!--        <p>This My Resume that Ellaborate my work experience and what i did,what technologyies i used</p>-->
+<!--        <div class="card-deck text-center">-->
+<!--            <div class="card">-->
+<!--                <div class="card-header text-uppercase font-weight-bold"> WEB DEVELOPER</div>-->
+<!--                <div class="card-body">-->
+<!--                    <p>At Cignity Tech Solutions As a Head front-End Developer.</p>-->
+<!--                    <p class="bg-dark text-white p-2"> As a Front-End Developer</p>-->
+<!--                </div>-->
+<!--                <div class="card-footer"> Date: 2016-2017</div>-->
+<!--            </div>-->
+<!--            <div class="card">-->
+<!--                <div class="card-header text-uppercase font-weight-bold"> Front-End Developer</div>-->
+<!--                <div class="card-body">-->
+<!--                    <p>At Zen-Info Tech Solutions As a Head front-End Developer.</p>-->
+<!--                    <p class="bg-dark text-white p-2"> As a Front-End Developer</p>-->
+<!--                </div>-->
+<!--                <div class="card-footer"> Date: 2017-2018</div>-->
+<!--            </div>-->
+<!--            <div class="card">-->
+<!--                <div class="card-header text-uppercase font-weight-bold"> Full-Stack Develper</div>-->
+<!--                <div class="card-body">-->
+<!--                    <p>At Snchrony-FanancialAs a Head Full-Stack Developer.</p>-->
+<!--                    <p class="bg-dark text-white p-2"> As a Full-stack Developer</p>-->
+<!--                </div>-->
+<!--                <div class="card-footer"> Date: 2018-Present</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="collapse container" id="work">-->
+<!--    <div class="p-5 text-white bg-primary">-->
+<!--        <h2>My Portfolio</h2>-->
+<!--        <p>This My Resume that Ellaborate my work experience and what i did,what technologyies i used.</p>-->
+<!--    </div>-->
+<!--    <div class="card card-body">-->
+<!--        <h3>What I Have Built.</h3>-->
+<!--        <p>Here all my skills were displayed according to that what i did in my carrier.</p>-->
+<!--        <div class="row no-gutters">-->
+<!--            <div class="col-lg-4 col-md-4"><img src="port.jpg" alt="port image"></div>-->
+<!--            <div class="col-lg-4 col-md-4"><img src="gg.jpg" alt="gg image "></div>-->
+<!--            <div class="col-lg-4 col-md-4"><img src="11.jpg" alt=""></div>-->
+<!--            <div class="col-lg-4 col-md-4"><img src="11.jpg" alt=""></div>-->
+<!--            <div class="col-lg-4 col-md-4"><img src="port.jpg" alt=""></div>-->
+<!--            <div class="col-lg-4 col-md-4"><img src="gg.jpg" alt=""></div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="collapse container" id="contact">-->
+<!--    <div class="p-5 text-white bg-warning">-->
+<!--        <h2>Contact Me</h2>-->
+<!--        <p>This My Resume that Ellaborate my work experience and what i did,what technologyies i used.</p>-->
+<!--    </div>-->
+<!--    <div class="card card-body">-->
+<!--        <div class="row justify-content-center">-->
+<!--            <div class="col-lg-8 col-md-8 col-12">-->
+<!--                <form action="getdata">-->
+<!--                    <div class="form-group">-->
+<!--                        <div class="input-group input-group-lg">-->
+<!--								<span class="input-group-addon bg-warning text-white p-2"><i-->
+<!--                                        class="fa fa-user"></i></span>-->
+<!--                            <input type="text" name="name" class="form-control bg-dark text-white" placeholder="Name"-->
+<!--                                   id="name">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <div class="input-group input-group-lg">-->
+<!--								<span class="input-group-addon bg-warning text-white p-2"><i-->
+<!--                                        class="fa fa-envelope"></i></span>-->
+<!--                            <input type="text" name="mail" class="form-control bg-dark text-white" placeholder="E-mail"-->
+<!--                                   id="mail">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <div class="input-group input-group-lg">-->
+<!--								<span class="input-group-addon bg-warning text-white p-2"><i-->
+<!--                                        class="fa fa-envelope"></i></span>-->
+<!--                            <input type="text" name="msg" class="form-control bg-dark text-white"-->
+<!--                                   placeholder="Message " id="msg">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <input type="submit" name="" class="btn btn-danger" value="Send" id="send">-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="container">-->
+<!--    <footer class="p-2 bg-dark text-center">-->
+<!--        <button class="btn"><i class="fa fa-download fa-2x"></i><br><label class="jet">Download</label></button>-->
+<!--    </footer>-->
+<!--</div>-->
+
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>-->
+<!--</body>-->
+
+<!--</html>-->
