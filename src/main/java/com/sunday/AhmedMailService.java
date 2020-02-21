@@ -38,17 +38,18 @@ public class AhmedMailService {
     public ResponseEntity<Object> downloadFile() throws Exception {
 
         log.info("resume path is set here");
+
         File file = new ClassPathResource("resume.docx").getFile();
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", String.format("attachment; filename=\"%s\"", file.getName()));
+        headers.add("Content-Disposition", "attachment; filename=\"" + file.getName()+"\"");
         headers.add("Cache-Control", "no-cache, no-store, must-revalidte");
         headers.add("Pragma", "no-cache");
         headers.add("Expires", "0");
         return ResponseEntity.ok()
                 .headers(headers)
                 .contentLength(file.length())
-                .contentType(MediaType.parseMediaType("application/docx"))
+                .contentType(MediaType.parseMediaType("application/vnd.openxmlformats-officedocument.wordprocessingml.document"))
                 .body(resource);
     }
 
