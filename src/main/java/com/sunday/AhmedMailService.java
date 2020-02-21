@@ -37,8 +37,7 @@ public class AhmedMailService {
 
     public ResponseEntity<Object> downloadFile() throws Exception {
 
-//        String s = String.valueOf(Paths.get("").toAbsolutePath());
-//        s += "\\resume.docx";
+        log.info("resume path is set here");
         File file = new ClassPathResource("resume.docx").getFile();
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
         HttpHeaders headers = new HttpHeaders();
