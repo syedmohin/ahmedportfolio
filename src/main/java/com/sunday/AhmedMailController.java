@@ -39,7 +39,14 @@ public class AhmedMailController {
     @GetMapping("/name")
     public String name() {
         log.info("Calling Goku Army ");
-        return "Syed Mohiuddin < Goku Army";
+        return "Syed Mohiuddin";
+    }
+    
+    @ResponseBody
+    @GetMapping("/goku")
+    public String goku() {
+        log.info("Calling Goku Army ");
+        return "Goku Amry";
     }
 
     @ResponseBody
