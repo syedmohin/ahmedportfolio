@@ -40,58 +40,20 @@ public class AhmedMailController {
     @GetMapping("/name")
     public String name() {
         log.info("Calling Goku Army ");
-        return "Syed Mohiuddin";
+        return "<body style='background-color:black;'><h1  style='color:tomato;'>Syed Mohiuddin";
     }
     @ResponseBody
     @GetMapping("/haku")
     public String friend() {
         log.info("Calling Goku Army ");
-        return "Mohd Abdul Hakeem";
+        return "<body style='background-color:black;'><h1 style='color:green;'>Mohd Abdul Hakeem";
     }
     
     @ResponseBody
     @GetMapping("/goku")
     public String goku() {
         log.info("Calling Goku Army ");
-        return "Goku Amry";
-    }
-
-    @ResponseBody
-    @RequestMapping("/getresume")
-    public ResponseEntity<?> downloadFile(HttpServletResponse response) {
-//        Resource resource = new ClassPathResource("resume.pdf");
-        String path = String.valueOf(Paths.get("").toAbsolutePath());
-//        URL path = AhmedMailController.class.getResource("resume.pdf");
-
-        File f = new File("D:\\Programs\\Spring\\Ahmed\\src\\main\\resources\\resume.pdf");
-//        File f = new File("https://drive.google.com/open?id=1Fh24_ojO2LySGWAdm1EnT05kAo-99jHq");
-        log.info(f.getAbsolutePath());
-        response.setContentType("application/pdf");
-        response.setHeader("Content-Disposition", "attachment; filename=resume.pdf");
-        response.setHeader("Content-Transfer-Encoding", "binary");
-        BufferedOutputStream bufferedOutputStream = null;
-        try {
-            bufferedOutputStream = new BufferedOutputStream(response.getOutputStream());
-            FileInputStream fileInputStream = new FileInputStream(f);
-            int len;
-            byte[] buf = new byte[1024];
-            while ((len = fileInputStream.read(buf)) > 0) {
-                bufferedOutputStream.write(buf, 0, len);
-            }
-            return ResponseEntity.ok()
-                    .contentType(MediaType.parseMediaType("application/pdf"))
-                    .body(bufferedOutputStream);
-        } catch (Exception e) {
-            log.error("Unable to download file  {} ", e.toString());
-        } finally {
-            try {
-                if (bufferedOutputStream != null) bufferedOutputStream.close();
-                response.flushBuffer();
-            } catch (Exception e) {
-                log.error("Unable to download file  {} ", e.getMessage());
-            }
-        }
-        return new ResponseEntity<>("error ouccred", HttpStatus.INTERNAL_SERVER_ERROR);
+        return "<body style='background-color:black;'><h1 style='color:red;'>Goku Amry";
     }
 
     @ResponseBody
