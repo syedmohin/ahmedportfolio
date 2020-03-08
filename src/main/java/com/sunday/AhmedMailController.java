@@ -42,6 +42,12 @@ public class AhmedMailController {
         log.info("Calling Goku Army ");
         return "Syed Mohiuddin";
     }
+    @ResponseBody
+    @GetMapping("/haku")
+    public String friend() {
+        log.info("Calling Goku Army ");
+        return "Mohd Abdul Hakeem";
+    }
     
     @ResponseBody
     @GetMapping("/goku")
